@@ -141,8 +141,8 @@ except Exception as e:
 try:
     _system(f'sudo mkdir -p {file_log_json.parent}')
     _system(f'sudo mkdir -p {file_log.parent}')
-    _system(f'sudo chown {os.getlogin()}:www-data -fR {file_log.parent}')
-    _system(f'sudo chown {os.getlogin()}:www-data -fR {file_log_json.parent}')
+    _system(f'sudo chown $LOGNAME:www-data -fR {file_log.parent}')
+    _system(f'sudo chown $LOGNAME:www-data -fR {file_log_json.parent}')
     _system(f'touch {file_log_json}')
     _system(f'touch {file_log}')
     _system('python3 alyx/manage.py makemigrations')
